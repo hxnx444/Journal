@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #faf6f0;
+  --color-paper: #fffdfb;
+  --color-blush: #f6e4e8;
+  --color-rose: #c98998;
+  --color-rose-deep: #a56b7c;
+  --color-lavender: #e4dcf0;
+  --color-lilac: #7d6d96;
+  --color-gold: #c4a574;
+  --color-gold-soft: #efe3cc;
+  --color-ink: #3d3140;
+  --color-muted: #8a7b86;
+  --color-night: #2c3148;
+  --color-line: #eadfe4;
+  --font-display: "Fredoka", "Nunito", system-ui, sans-serif;
+  --font-sans: "Nunito", system-ui, sans-serif;
+  --font-pixel: "Pixelify Sans", system-ui, sans-serif;
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html,
+  body {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    min-height: 100%;
+  }
+
+  body {
+    background-image:
+      radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--color-blush) 80%, transparent), transparent 32%),
+      radial-gradient(circle at 88% 0%, color-mix(in srgb, var(--color-lavender) 70%, transparent), transparent 28%),
+      radial-gradient(1px 1px at 20px 40px, color-mix(in srgb, var(--color-gold) 55%, transparent), transparent),
+      radial-gradient(1px 1px at 80px 90px, color-mix(in srgb, var(--color-lilac) 35%, transparent), transparent);
+    background-size: auto, auto, 140px 120px, 180px 140px;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+    color: inherit;
+  }
+}
+
+@utility card {
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--color-lilac) 10%, transparent);
+}
+
+@utility kicker {
+  font-family: var(--font-pixel);
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--color-rose-deep);
+  font-size: 0.78rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
